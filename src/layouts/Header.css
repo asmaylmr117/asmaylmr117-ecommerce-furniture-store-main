@@ -1,0 +1,27 @@
+.custom-underline {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-underline:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* المسافة بين النص والخط */
+    width: 100%;
+    height: 2px; /* سمك الخط */
+    background-color: #92850f; /* لون الخط للروابط العادية */
+  }
+  
+  .custom-underline:hover {
+    color: #000000; /* لون النص عند التمرير */
+  }
+  
+  /* تخصيص لون الخط لـ Logout */
+  button.custom-underline:hover::after {
+    background-color: #dc2626; /* لون الخط لـ Logout */
+  }
+  
+  button.custom-underline:hover {
+    color: #dc2626; /* لون النص لـ Logout عند التمرير */
+  }
