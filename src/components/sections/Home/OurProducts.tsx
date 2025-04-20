@@ -1,21 +1,28 @@
-"use client"; // ضروري لأننا نستخدم framer-motion على جانب العميل
+"use client"; 
 import ItemCard from "./components/ItemCard";
 import { allProducts } from "@/store/SotorageOfProducts";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation"; // Import useRouter from Next.js
 
 const OurProducts = () => {
-  // Variants للتحكم في التأثيرات
+  const router = useRouter(); // Initialize the router
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }, // تأخير متدرج بين العناصر الفرعية
+      transition: { staggerChildren: 0.2 }, 
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 }, // يبدأ من الأسفل مع عدم وضوح
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }, // يظهر ويتحرك للأعلى
+    hidden: { opacity: 0, y: 20 }, 
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }, 
+  };
+
+  // Function to handle button click and navigate to the Shop page
+  const handleLearnMoreClick = () => {
+    router.push("/shop"); // Navigate to the /shop route
   };
 
   return (
@@ -24,7 +31,7 @@ const OurProducts = () => {
       initial="hidden"
       whileInView="visible"
       variants={containerVariants}
-      viewport={{ once: false }} // التأثير يتكرر في كل مرة يظهر القسم
+      viewport={{ once: false }} 
     >
       <motion.h1
         variants={itemVariants}
@@ -116,6 +123,7 @@ const OurProducts = () => {
       <motion.button
         variants={itemVariants}
         className="mt-[32px] w-[245px] h-[48px] border border-[#B88E2F] bg-white hover:bg-[#B88E2F] duration-300"
+        onClick={handleLearnMoreClick} // Add onClick handler
       >
         <p className="text-[16px] text-[#B88E2F] font-[600] hover:text-white duration-300">
           Learn More
