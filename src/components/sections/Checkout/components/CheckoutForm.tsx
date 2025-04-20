@@ -60,37 +60,40 @@ Email: ${data.email}
 
   return (
     <div className="flex flex-col items-center">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-[360px] ss动了:w-[420px] xsml:w-[555px] sml:w-[608px] flex flex-col justify-start items-center mt-[50px] xsml:px-[40px]">
-        <h1 className="text-[22px] text-black font-[600] mont">Contact Information</h1>
-        <div className="flex flex-col justify-start items-start mt-[35px]">
-          <p className="text-black font-[500] text-[16px] mont">Name</p>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-[320px] xs:w-[360px] sm:w-[400px] flex flex-col justify-start items-center mt-[40px] px-[10px] sm:px-[20px] md:ml-[40px] lg:ml-[60px] md:mr-[40px] lg:mr-[60px]"
+      >
+        <h1 className="text-[20px] sm:text-[22px] text-black font-[600] mont">Contact Information</h1>
+        <div className="flex flex-col justify-start items-start mt-[25px] w-full">
+          <p className="text-black font-[500] text-[14px] sm:text-[16px] mont">Name</p>
           <input
             type="text"
-            className="w-[360px] ssml:w-[420px] h-[75px] bg-none rounded-[10px] border border-black px-[25px] outline-none"
+            className="w-full h-[60px] bg-none rounded-[8px] border border-black px-[15px] outline-none text-[14px]"
             {...register("name", {
               required: "Enter your first name",
             })}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
           />
-          {errors?.name && <div className='text-[red] text-[11px]'>{errors.name.message}</div>}
+          {errors?.name && <div className="text-[red] text-[10px] mt-[5px]">{errors.name.message}</div>}
         </div>
-        <div className="flex flex-col justify-start items-start mt-[35px]">
-          <p className="text-black font-[500] text-[16px] mont">Last Name</p>
+        <div className="flex flex-col justify-start items-start mt-[25px] w-full">
+          <p className="text-black font-[500] text-[14px] sm:text-[16px] mont">Last Name</p>
           <input
             type="text"
-            className="w-[360px] ssml:w-[420px] h-[75px] bg-none rounded-[10px] border border-black px-[25px] outline-none"
+            className="w-full h-[60px] bg-none rounded-[8px] border border-black px-[15px] outline-none text-[14px]"
             {...register("secondName", {
               required: "Enter your last name",
             })}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSecondName(e.target.value)}
           />
-          {errors?.secondName && <div className='text-[red] text-[11px]'>{errors.secondName.message}</div>}
+          {errors?.secondName && <div className="text-[red] text-[10px] mt-[5px]">{errors.secondName.message}</div>}
         </div>
-        <div className="flex flex-col justify-start items-start mt-[35px]">
-          <p className="text-black font-[500] text-[16px] mont">Phone</p>
+        <div className="flex flex-col justify-start items-start mt-[25px] w-full">
+          <p className="text-black font-[500] text-[14px] sm:text-[16px] mont">Phone</p>
           <input
             type="tel"
-            className="w-[360px] ssml:w-[420px] h-[75px] bg-none rounded-[10px] border border-black px-[25px] outline-none"
+            className="w-full h-[60px] bg-none rounded-[8px] border border-black px-[15px] outline-none text-[14px]"
             {...register("phone", {
               required: "Enter phone number",
               pattern: {
@@ -100,12 +103,13 @@ Email: ${data.email}
             })}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)}
           />
-          {errors?.phone && <div className='text-[red] text-[11px]'>{errors.phone.message}</div>}
+          {errors?.phone && <div className="text-[red] text-[10px] mt-[5px]">{errors.phone.message}</div>}
         </div>
-        <div className="flex flex-col justify-start items-start mt-[35px]">
-          <p className="text-black font-[500] text-[16px] mont">Email</p>
+        <div className="flex flex-col justify-start items-start mt-[25px] w-full">
+          <p className="text-black font-[500] text-[14px] sm:text-[16px] mont">Email</p>
           <input
-            type='email'
+            type="email"
+            className="w-full h-[60px] bg-none rounded-[8px] border border-black px-[15px] outline-none text-[14px]"
             {...register("email", {
               required: "Enter Email",
               pattern: {
@@ -114,20 +118,21 @@ Email: ${data.email}
               },
             })}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-            className="w-[360px] ssml:w-[420px] h-[75px] bg-none rounded-[10px] border border-black px-[25px] outline-none"
           />
-          {errors?.email && <div className='text-[red] text-[11px]'>{errors.email.message}</div>}
+          {errors?.email && <div className="text-[red] text-[10px] mt-[5px]">{errors.email.message}</div>}
         </div>
-        <button className="border border-black w-[360px] ssml:w-[420px] h-[64px] bg-transparent rounded-[15px] mt-[40px] hover:bg-[#B88E2F] duration-300">
-          <p className="text-[20px] font-[400] mont text-black  duration-300">
+        <button className="border border-black w-full h-[50px] bg-transparent rounded-[12px] mt-[30px] hover:bg-[#B88E2F] duration-300">
+          <p className="text-[16px] sm:text-[18px] font-[400] mont text-black duration-300">
             Submit
           </p>
         </button>
-
       </form>
       {successMessage && (
-        <div className={`mt-[20px] text-[16px] mont ${successMessage.includes("Failed") ? "text-red-500" : "text-green-500"
-          }`}>
+        <div
+          className={`mt-[15px] text-[14px] sm:text-[16px] mont ${
+            successMessage.includes("Failed") ? "text-red-500" : "text-green-500"
+          } md:ml-[40px] lg:ml-[60px]`}
+        >
           {successMessage}
         </div>
       )}
