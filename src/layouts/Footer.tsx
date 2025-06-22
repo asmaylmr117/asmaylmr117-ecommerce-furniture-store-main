@@ -71,7 +71,7 @@ const Footer = () => {
         </form>
       </div>
       <p className="text-[16px] font-[400] text-black my-[38px] border-t border-t-[#0000002B] w-[90%] pt-[35px]">
-        2024 Furnitura.ru
+       Developed by DevnityCode Copyright © 2025
       </p>
     </div>
   );
